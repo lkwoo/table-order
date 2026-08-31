@@ -24,14 +24,14 @@ Application Design에서 정의한 컴포넌트/서비스를 개발 단위로 �
 ## Step 1: 컨텍스트 로드 ✅
 - [x] requirements.md / stories.md / application-design 산출물 분석
 
-## Step 2: 결정 질문 답변 (아래 PART 2)
-- [ ] 모든 [Answer]: 태그 작성 완료
+## Step 2: 결정 질문 답변 (아래 PART 2) ✅
+- [x] 모든 [Answer]: 태그 작성 완료 (전부 A/권장, 모호성 없음)
 
-## Step 3: 산출물 생성 (승인 후)
-- [ ] `application-design/unit-of-work.md` — 단위 정의 및 책임 + 코드 조직 전략(Greenfield)
-- [ ] `application-design/unit-of-work-dependency.md` — 단위 의존성 매트릭스
-- [ ] `application-design/unit-of-work-story-map.md` — 스토리 ↔ 단위 매핑
-- [ ] 단위 경계/의존성 검증, 모든 스토리 배정 확인
+## Step 3: 산출물 생성 (승인 후) ✅
+- [x] `application-design/unit-of-work.md` — 단위 정의 및 책임 + 코드 조직 전략(Greenfield)
+- [x] `application-design/unit-of-work-dependency.md` — 단위 의존성 매트릭스
+- [x] `application-design/unit-of-work-story-map.md` — 스토리 ↔ 단위 매핑
+- [x] 단위 경계/의존성 검증, 모든 스토리 배정 확인
 
 ---
 
@@ -50,7 +50,7 @@ Application Design에서 정의한 컴포넌트/서비스를 개발 단위로 �
 - **B) 마이크로서비스 (Unit별 독립 배포)**
   - 인메모리 EventBroker·단일 인스턴스 전제와 상충, 범위 초과
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -63,7 +63,7 @@ Unit(모듈)을 어떤 기준으로 묶을까요?
 - **B) Persona 기준 (고객 모듈 / 관리자 모듈 2개)**
 - **C) 기술 계층 기준 (프론트/백/DB)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -75,7 +75,7 @@ Unit(모듈)을 어떤 기준으로 묶을까요?
   - 백엔드 도메인 Unit들과 분리해 관리 (빌드/배포 단위가 다름)
 - **B) 각 도메인 Unit에 프론트+백을 함께 포함 (풀스택 슬라이스)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -87,7 +87,7 @@ Unit(모듈)을 어떤 기준으로 묶을까요?
   - AuthGuard, EventBroker, DB(모델/UoW), 공통 Validator/ApiClient 등을 공유 기반 Unit에 배치
 - **B) 각 Unit에 중복 배치**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -109,7 +109,7 @@ Unit(모듈)을 어떤 기준으로 묶을까요?
   ```
 - **B) 계층별 최상위 폴더 (routers/ services/ repositories/ ...)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -121,7 +121,7 @@ Unit 개발 순서는 어떻게 정할까요? (1인/소규모 개발 가정)
   - Core → 인증 → 메뉴/주문 → 실시간 → 테이블관리 → 메뉴관리. Sprint 1(MVP) 우선
 - **B) 기타 (설명)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -134,4 +134,4 @@ Unit 개발 순서는 어떻게 정할까요? (1인/소규모 개발 가정)
 ---
 
 **작성일**: 2026-08-31
-**상태**: 답변 대기 (Awaiting User Input)
+**상태**: 답변 완료 (전부 권장) → 산출물 생성 완료

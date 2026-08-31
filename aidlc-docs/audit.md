@@ -174,3 +174,35 @@
 
 ### Next Phase
 - **Units Generation** (INCEPTION) — Planning started
+
+---
+
+## Phase: INCEPTION - Units Generation
+- **Status**: ✅ Artifacts Generated (Pending User Approval)
+- **Timestamp**: 2026-08-31
+- **Plan**: `aidlc-docs/inception/plans/unit-of-work-plan.md`
+
+### Decomposition Decisions (all recommended / option A)
+- Q1 Deployment: Monolith single service (logical modules)
+- Q2 Grouping: Business domain / capability
+- Q3 Frontend: Independent unit (customer/admin modules inside)
+- Q4 Shared resources: Core/Shared unit (guards, EventBroker, DB/models)
+- Q5 Directory: Backend domain packages + separate frontend app
+- Q6 Order: Dependency order + sprint placement
+
+### Units Defined (8)
+- U0 Core/Shared, U1 Auth, U2 Menu, U3 Order, U4 Realtime & Dashboard, U5 Table & Session, U6 Menu Management, U7 Frontend
+
+### Artifacts Generated
+- `aidlc-docs/inception/application-design/unit-of-work.md`
+- `aidlc-docs/inception/application-design/unit-of-work-dependency.md`
+- `aidlc-docs/inception/application-design/unit-of-work-story-map.md`
+
+### Coverage
+- 24/24 stories assigned to units (C5 = gap). Dependency graph acyclic (DAG).
+
+### Approval Prompt (logged 2026-08-31)
+> "Unit of work plan complete. Units 산출물이 생성되었습니다(`aidlc-docs/inception/application-design/`). (1) 변경 요청 (2) 승인 & CONSTRUCTION 진행 중 선택해주세요."
+
+### Next Phase
+- Awaiting user approval → **CONSTRUCTION PHASE (Functional Design)**
