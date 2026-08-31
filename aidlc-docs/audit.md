@@ -204,5 +204,9 @@
 ### Approval Prompt (logged 2026-08-31)
 > "Unit of work plan complete. Units 산출물이 생성되었습니다(`aidlc-docs/inception/application-design/`). (1) 변경 요청 (2) 승인 & CONSTRUCTION 진행 중 선택해주세요."
 
+### Approval Response
+- **User Decision**: Approved (2026-08-31) — "응 승인. 진행해줘"
+- **Status**: Approved → INCEPTION complete, entering CONSTRUCTION
+
 ### Next Phase
-- Awaiting user approval → **CONSTRUCTION PHASE (Functional Design)**
+- **CONSTRUCTION PHASE — Functional Design** (per-unit business logic)
