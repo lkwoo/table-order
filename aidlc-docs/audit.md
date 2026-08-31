@@ -65,7 +65,7 @@
 
 ### User Stories Findings
 - **Organization Approach**: User Journey-Based
-- **Total Stories**: 25 (Customer: 12, Admin: 13) *[corrected after verification]*
+- **Total Stories**: 24 (Customer: 11, Admin: 13) *[final, after verification + scope removal]*
 - **Personas**: 2 (Customer with 3 segments, Admin)
 - **Acceptance Criteria Format**: Given-When-Then (BDD), Detailed level
 - **Story Size**: Medium (2-5 days)
@@ -118,3 +118,19 @@
 
 ### Skipped-Stage Review
 - **Reverse Engineering**: Legitimately SKIPPED (Greenfield, no existing code). No other stages skipped — remaining 8 stages all set to EXECUTE. Nothing to add.
+
+---
+
+## Scope Decision - Out-of-Scope Feature Removal
+- **Status**: ✅ Complete
+- **Timestamp**: 2026-08-31
+- **User Decision**: "범위 밖 추가기능은 제거해줘. 주문 후 리다이렉트를 메뉴화면으로 확정. 다음 단계로 넘어가자."
+
+### Actions Taken
+1. **C5 (메뉴 검색) removed**: Not in requirements → story deleted. ID kept as gap (결번) for stable identifiers; no renumbering.
+2. **C4 정정**: Removed 알레르기/칼로리 (범위 밖); aligned detail view to 요구사항 3.1.2 (메뉴명, 가격, 설명, 이미지).
+3. **주문 후 리다이렉트**: Confirmed → 메뉴 화면 (요구사항 3.1.4).
+4. **Final count**: 25 → **24 stories** (Customer 11, Admin 13). Sprint 2: 6 → 5 (A9-A13).
+
+### Next Phase
+- User approved proceeding → **Application Design** (INCEPTION)
