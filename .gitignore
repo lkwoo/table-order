@@ -17,3 +17,6 @@ frontend/dist/
 # OS / IDE
 .DS_Store
 *.log
+
+# 로컬 검증 산출물(UI 스크린샷 등)
+screenshots/
