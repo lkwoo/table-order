@@ -270,3 +270,25 @@
 
 ### Next Phase
 - **NFR Design** (proceeding with recommended defaults per standing instruction)
+
+---
+
+## Phase: CONSTRUCTION - NFR Design
+- **Status**: ✅ Artifacts Generated
+- **Timestamp**: 2026-08-31
+- **Scope**: Project-level (monolith)
+- **Plan**: `aidlc-docs/construction/plans/nfr-design-plan.md` (Q1-Q5 전부 권장)
+
+### Design Patterns (all recommended)
+- Resilience: 클라이언트 백오프 재시도(3회) + idempotency-key + SSE 자동재연결/스냅샷 재조회 + 원자 트랜잭션(UoW)
+- Performance: DB 인덱스 + 메뉴 인메모리 캐시(TTL) + SSE push(폴링 제거) + 이미지 lazy-load
+- Scalability: 인프로세스 EventBroker Pub/Sub (토픽: store dashboard / session orders)
+- Security: JWT(관리자)+세션토큰(테이블) Dependency guard, bcrypt, Pydantic 검증, 서버측 금액 재계산/세션 필터
+- Logical components: 전부 애플리케이션 내부 (외부 Redis/큐/서킷브레이커 미사용)
+
+### Artifacts Generated
+- `aidlc-docs/construction/nfr-design/nfr-design-patterns.md`
+- `aidlc-docs/construction/nfr-design/logical-components.md` (EventBroker 상세, 트랜잭션 경계, 논리 배치도)
+
+### Next Phase
+- **Infrastructure Design** (proceeding with recommended defaults)

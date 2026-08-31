@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: CONSTRUCTION - NFR Requirements (Complete) → NFR Design in progress
+- **Current Stage**: CONSTRUCTION - NFR Design (Complete) → Infrastructure Design in progress
 
 ## Workspace State
 - **Existing Code**: No
@@ -30,8 +30,8 @@
 ### CONSTRUCTION Phase
 - [x] Functional Design: ✅ Complete (8 units; approved 2026-08-31 via "이어서 진행" instruction)
 - [x] NFR Requirements: ✅ Complete (project-level, requirements §4 근거; nfr-requirements.md + tech-stack-decisions.md)
-- [ ] NFR Design: EXECUTE (in progress)
-- [ ] Infrastructure Design: EXECUTE
+- [x] NFR Design: ✅ Complete (nfr-design-patterns.md + logical-components.md; EventBroker/AuthGuard/UoW/cache 논리 컴포넌트)
+- [ ] Infrastructure Design: EXECUTE (in progress)
 - [ ] Code Generation: EXECUTE
 - [ ] Build and Test: EXECUTE
 
