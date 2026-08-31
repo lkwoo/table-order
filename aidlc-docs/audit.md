@@ -167,5 +167,10 @@
 ### Approval Prompt (logged 2026-08-31)
 > "Application Design 산출물이 생성되었습니다. `aidlc-docs/inception/application-design/`를 검토하신 후 (1) 변경 요청 (2) 승인 & Units Generation 진행 중 선택해주세요."
 
+### Approval Response
+- **User Decision**: Approved (2026-08-31) — "응 진행해줘"
+- **Additional Standing Instruction**: Commit to git at every stage completion (branch `main`), push to origin when ≥3 commits accumulate, until project complete.
+- **Status**: Approved → proceeding to Units Generation
+
 ### Next Phase
-- Awaiting user approval → **Units Generation** (INCEPTION)
+- **Units Generation** (INCEPTION) — Planning started

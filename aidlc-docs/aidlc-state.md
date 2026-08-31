@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: INCEPTION - Application Design (Artifacts Complete - Pending Approval)
+- **Current Stage**: INCEPTION - Units Generation (Planning)
 
 ## Workspace State
 - **Existing Code**: No
@@ -24,8 +24,8 @@
 - [x] Requirements Analysis: ✅ Complete
 - [x] User Stories: ✅ Complete (24 stories: Customer 11, Admin 13; 2 personas, story matrix)
 - [x] Workflow Planning: ✅ Complete
-- [~] Application Design: ARTIFACTS COMPLETE (5 docs generated - pending approval)
-- [ ] Units Generation: EXECUTE
+- [x] Application Design: ✅ Complete (approved 2026-08-31; 5 design docs)
+- [~] Units Generation: IN PROGRESS (Planning - awaiting decomposition decisions)
 
 ### CONSTRUCTION Phase
 - [ ] Functional Design: EXECUTE
@@ -60,4 +60,5 @@
 - **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
 - **Image Storage**: External URLs (no file upload)
 - **Data Retention**: 3 months for order history
-- **Next Action**: User review/approval of Application Design → proceed to Units Generation
+- **Next Action**: Complete Units Generation plan Q&A (unit-of-work-plan.md), then generate unit artifacts
+- **Git Policy**: Commit at every stage completion on `main`; push to origin at ≥3 commits (standing instruction from user, 2026-08-31)
