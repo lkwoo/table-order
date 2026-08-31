@@ -360,3 +360,26 @@
 
 ### Next Phase
 - ⏸ **AWAITING USER APPROVAL** → Build and Test
+
+---
+
+## Build and Test Stage
+**Timestamp**: 2026-08-31
+**Approval**: User "진행해줘" (2026-08-31) → Build and Test 실행 승인
+**Build Status**: Backend Success (import/lifespan/health OK); Frontend·Docker 빌드 절차 정의(Node.js 미설치로 실행 이연, Docker/CI 에서 수행)
+**Test Status**: ✅ Pass — 17 passed (unit/PBT 13 + integration 4), 0 failed, 라인 커버리지 ~85%
+**PBT 불변식**: 7/7 검증
+**Integration**: FastAPI TestClient + SQLite in-memory, 인증→테이블→메뉴→주문→대시보드→상태전이 전 흐름
+**Files Generated**:
+- construction/build-and-test/build-instructions.md
+- construction/build-and-test/unit-test-instructions.md
+- construction/build-and-test/integration-test-instructions.md
+- construction/build-and-test/performance-test-instructions.md
+- construction/build-and-test/build-and-test-summary.md
+- backend/tests/test_integration_api.py (신규)
+
+### Approval Gate (logged 2026-08-31)
+> "Build and Test 완료 — 백엔드 pytest 17건 통과(커버리지 ~85%, PBT 7 + 통합 4). 프런트/Docker 빌드 절차 정의. 다음은 Operations 단계입니다. (1) 변경 요청 (2) 승인 & Operations 진행 중 선택해주세요."
+
+### Next Phase
+- ⏸ **AWAITING USER APPROVAL** → Operations (배포 계획)
