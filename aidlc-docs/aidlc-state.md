@@ -35,8 +35,25 @@
 - [ ] Operations: Future
 
 ## Extension Configuration
-- No extensions enabled yet (will be determined during Requirements Analysis)
+
+| Extension | Enabled | Decided At |
+|-----------|---------|-----------|
+| Security Baseline | No | Requirements Analysis |
+| Resiliency Baseline | No | Requirements Analysis |
+| Property-Based Testing | Yes | Requirements Analysis |
+
+## Technology Stack Decisions
+- **Backend**: Python/FastAPI
+- **Frontend**: React
+- **Database**: PostgreSQL
+- **Real-time Communication**: Server-Sent Events (SSE)
+- **Authentication**: JWT (16-hour session)
+- **Development Environment**: Docker Compose
 
 ## Key Decisions
 - **Project Classification**: Greenfield - Building from scratch
-- **Next Action**: Proceed to Requirements Analysis
+- **Scope**: MVP with core features only
+- **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
+- **Image Storage**: External URLs (no file upload)
+- **Data Retention**: 3 months for order history
+- **Next Action**: Determine if User Stories stage is needed
