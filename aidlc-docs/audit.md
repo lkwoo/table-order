@@ -240,5 +240,33 @@
 ### Approval Prompt (logged 2026-08-31)
 > "Functional Design 산출물이 생성되었습니다(`aidlc-docs/construction/`). 8개 유닛의 비즈니스 로직/규칙과 프론트엔드 컴포넌트 설계를 검토하신 후 (1) 변경 요청 (2) 승인 & NFR Requirements 진행 중 선택해주세요."
 
+### Approval Response
+- **User Decision**: Approved (2026-08-31) — "ai-dlc 과정을 이어서 진행해줘. git commit도 계속 부탁해"
+- **Interpretation**: 진행 지시 = Functional Design 승인 + 남은 설계 단계(NFR Req/Design, Infra) 권장 기본값으로 진행 위임. 코드 생성 직전 승인 게이트 유지.
+- **Status**: Approved → proceeding to NFR Requirements
+
 ### Next Phase
-- Awaiting user approval → **NFR Requirements**
+- **CONSTRUCTION — NFR Requirements** (project-level, 모놀리스 횡단 NFR)
+
+---
+
+## Phase: CONSTRUCTION - NFR Requirements
+- **Status**: ✅ Artifacts Generated
+- **Timestamp**: 2026-08-31
+- **Scope**: Project-level (monolith, 횡단 NFR — per-unit 중복 대신 통합)
+- **Plan**: `aidlc-docs/construction/plans/nfr-requirements-plan.md` (질문 전부 권장/option A, 근거는 승인된 requirements §4)
+
+### NFR Decisions (grounded in requirements §4, all recommended)
+- 성능: 주문 생성 <1s (p95), 메뉴 로드 <2s, SSE 반영 <2s
+- 확장성: 10-20 테이블, 동시 20-30 세션 (단일 인스턴스 인메모리 EventBroker 충분)
+- 가용성: 단일 인스턴스, 오프라인 대시보드 + 재연결 스냅샷 재동기화, DB 트랜잭션 정합성
+- 보안: bcrypt 해싱, JWT 16h, 입력 검증, 프로덕션 HTTPS (Security Baseline extension은 off)
+- 신뢰성: idempotency-key 재시도(최대 3회), 세션 종료 원자 트랜잭션
+- 유지보수: 계층형 구조, PBT(주문/결제 정합성), OpenAPI 문서
+
+### Artifacts Generated
+- `aidlc-docs/construction/nfr-requirements/nfr-requirements.md`
+- `aidlc-docs/construction/nfr-requirements/tech-stack-decisions.md`
+
+### Next Phase
+- **NFR Design** (proceeding with recommended defaults per standing instruction)
