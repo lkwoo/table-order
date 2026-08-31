@@ -292,3 +292,34 @@
 
 ### Next Phase
 - **Infrastructure Design** (proceeding with recommended defaults)
+
+---
+
+## Phase: CONSTRUCTION - Infrastructure Design
+- **Status**: ✅ Artifacts Generated
+- **Timestamp**: 2026-08-31
+- **Scope**: Project-level (monolith), 로컬 Docker Compose
+- **Plan**: `aidlc-docs/construction/plans/infrastructure-design-plan.md` (Q1-Q8 전부 권장)
+
+### Infrastructure Decisions (all recommended)
+- 배포: 로컬 Docker Compose (클라우드 향후 이연)
+- 컴퓨트: backend 컨테이너 uvicorn **workers=1** (인메모리 EventBroker/캐시 일관성 필수 제약)
+- 스토리지: postgres:16 컨테이너 + named volume, Alembic 마이그레이션
+- 메시징: 외부 브로커 없음 (인프로세스 EventBroker)
+- 네트워킹: dev(vite+uvicorn+CORS) / prod(nginx 정적+리버스프록시, SSE proxy_buffering off)
+- 모니터링: stdout 로그 + /health (풀 관측성 Operations 이연)
+- 격리: 단일 매장, store_id 논리 스코핑
+
+### Artifacts Generated
+- `aidlc-docs/construction/infrastructure-design/infrastructure-design.md`
+- `aidlc-docs/construction/infrastructure-design/deployment-architecture.md` (compose 계획, 기동 시퀀스, 디렉터리 구조)
+- `aidlc-docs/construction/shared-infrastructure.md` (U0 Core 공유 자원, 단일 워커 제약)
+
+### Design Stages Summary (batched per user "이어서 진행" instruction)
+- FD(승인) → NFR Requirements → NFR Design → Infrastructure Design 완료. 전부 requirements/승인된 설계 근거 권장값.
+
+### Approval Gate (logged 2026-08-31)
+> "설계 단계(NFR Req/Design, Infra) 완료. 다음은 Code Generation(실제 코드 생성)입니다. (1) 설계 변경 요청 (2) 승인 & 코드 생성 진행 중 선택해주세요."
+
+### Next Phase
+- ⏸ **AWAITING USER APPROVAL** → Code Generation (실제 backend/frontend 코드 생성)

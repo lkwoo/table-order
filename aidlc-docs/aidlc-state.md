@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: CONSTRUCTION - NFR Design (Complete) → Infrastructure Design in progress
+- **Current Stage**: CONSTRUCTION - Infrastructure Design (Complete) → Code Generation (awaiting approval gate)
 
 ## Workspace State
 - **Existing Code**: No
@@ -31,8 +31,8 @@
 - [x] Functional Design: ✅ Complete (8 units; approved 2026-08-31 via "이어서 진행" instruction)
 - [x] NFR Requirements: ✅ Complete (project-level, requirements §4 근거; nfr-requirements.md + tech-stack-decisions.md)
 - [x] NFR Design: ✅ Complete (nfr-design-patterns.md + logical-components.md; EventBroker/AuthGuard/UoW/cache 논리 컴포넌트)
-- [ ] Infrastructure Design: EXECUTE (in progress)
-- [ ] Code Generation: EXECUTE
+- [x] Infrastructure Design: ✅ Complete (Docker Compose db+backend+frontend, 단일 워커 제약, 디렉터리 구조, shared-infrastructure)
+- [ ] Code Generation: EXECUTE (⏸ APPROVAL GATE — 코드 생성 전 사용자 승인 대기)
 - [ ] Build and Test: EXECUTE
 
 ### OPERATIONS Phase
@@ -60,5 +60,5 @@
 - **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
 - **Image Storage**: External URLs (no file upload)
 - **Data Retention**: 3 months for order history
-- **Next Action**: Await Functional Design approval, then proceed to NFR Requirements
+- **Next Action**: Await user approval at Code Generation gate (design stages FD/NFR-Req/NFR-Design/Infra all complete)
 - **Git Policy**: Commit at every stage completion on `main`; push to origin at ≥3 commits (standing instruction from user, 2026-08-31)
