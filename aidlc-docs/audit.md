@@ -400,6 +400,27 @@
 - `docker` 런타임 미설치(Docker Desktop은 WSL2+재부팅+데몬 수동 기동 필요) → 실제 이미지 빌드/컨테이너 기동은 이 세션에서 불가.
 - 구성 파일 정합성 확인: `docker-compose.yml`(db postgres:16 healthcheck → backend depends_on service_healthy → frontend, DATABASE_URL/VITE_PROXY_TARGET 배선, 포트 5432/8000/5173), `backend/Dockerfile`(python:3.12-slim, 단일 워커 uvicorn), `frontend/Dockerfile`(node:20-alpine, vite dev). → CI/CD 또는 Docker Desktop 설치 환경에서 `docker compose build && up`로 검증 가능.
 
+### 실기동 검증 (Live Runtime Verification, this session, 2026-08-31)
+Docker 데몬 부재로 컨테이너 대신 **애플리케이션을 네이티브로 실기동**하여 엔드투엔드 검증. 백엔드는 SQLite로 기동(테스트에서 검증된 GUID TypeDecorator로 PG 없이 동작).
+- **백엔드 실기동**: `uvicorn app.main:app`(SQLite, 단일 워커) → 기동 시 스키마 생성 + 시드 자동 수행, `GET /health` → `{"status":"ok"}`.
+- **API E2E 시나리오 11/11 PASS** (`backend/live_check.py`로 재현 가능):
+  1. 관리자 로그인(admin/admin1234) → JWT `access_token` 발급
+  2. 잘못된 비밀번호 → 401 거부
+  3. 테이블 생성(POST /api/admin/tables) → 201
+  4. 테이블 로그인 → 불투명 `session_token`(X-Session-Token 헤더로 사용)
+  5. 메뉴 조회(카테고리별 7개 아이템)
+  6. 주문 생성(POST /api/orders) → 201
+  7. **총액 불변식**: 26,500 = 9,000×2 + 8,500×1 ✅
+  8. **멱등성**: 동일 idempotency_key 재요청 → 동일 주문 id ✅
+  9. 관리자 대시보드에 테이블 요약(total_amount 26,500 + recent_orders) 반영 ✅
+  10. 주문 상태 전이(대기중→준비중) PATCH → 200
+  11. 토큰 없는 관리자 API → 401 거부
+- **SSE 실시간**: `GET /api/sse/dashboard?token=` → 200, `content-type: text/event-stream`, 스트림 오픈 확인.
+- **프런트엔드 실서빙**: `vite preview`(dist/) → `GET /` 200(index.html, lang="ko", `#root`), `/assets/index-*.js` 200(199,823 B, text/javascript), `/assets/index-*.css` 200(7,059 B).
+- **인증 경계 확인**: 관리자=Authorization Bearer(JWT), 테이블=X-Session-Token(불투명 토큰) — 라우터 가드가 각각 401로 미인증 차단.
+- 검증 후 서버 종료, 임시 `dev.db` 제거(`.gitignore`에 `*.db` 추가). `live_check.py`는 스모크 테스트로 보존.
+- **남은 유일 항목**: Docker 컨테이너 실기동(이미지 빌드/네트워크/PG 연결)은 런타임 부재로 미실행 → CI/CD 또는 Docker 설치 환경에서 `docker compose up`으로 최종 확인.
+
 ---
 
 ## Operations Stage

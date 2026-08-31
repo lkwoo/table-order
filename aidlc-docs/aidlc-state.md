@@ -34,6 +34,7 @@
 - [x] Infrastructure Design: ✅ Complete (Docker Compose db+backend+frontend, 단일 워커 제약, 디렉터리 구조, shared-infrastructure)
 - [x] Code Generation: ✅ Complete (approved 2026-08-31 "진행해줘"; 8 units — backend FastAPI + frontend React + Docker Compose; 13 tests pass incl. 7 PBT 불변식)
 - [x] Build and Test: ✅ Complete (approved 2026-08-31 "진행해줘"; backend 17 pytest pass, ~85% coverage, 7 PBT + 4 integration). Frontend 빌드 완결(2026-08-31): Node 24.19.0 설치 → `npm run build` 성공, dist JS 198 kB/gzip 62.5 kB (tsconfig/@types/node 수정). Docker는 정적 검증만(런타임 미설치, CI/CD에서 실행).
+- [x] 실기동 검증(Live Runtime, 2026-08-31): 네이티브 기동으로 E2E 11/11 PASS(로그인→테이블→메뉴→주문→총액/멱등성 불변식→대시보드→상태전이→인증경계), SSE 200 text/event-stream, 프런트 `vite preview` 에셋 서빙 200. `backend/live_check.py` 스모크 테스트 보존. **Docker 컨테이너 실기동만 런타임 부재로 CI/CD 이연.**
 
 ### OPERATIONS Phase
 - [x] Operations: ✅ Complete (Placeholder — approved 2026-08-31 "2"; AI-DLC 워크플로는 Build and Test 이후 종료. 배포/모니터링/장애대응은 Future Scope)
