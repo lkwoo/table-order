@@ -382,4 +382,27 @@
 > "Build and Test 완료 — 백엔드 pytest 17건 통과(커버리지 ~85%, PBT 7 + 통합 4). 프런트/Docker 빌드 절차 정의. 다음은 Operations 단계입니다. (1) 변경 요청 (2) 승인 & Operations 진행 중 선택해주세요."
 
 ### Next Phase
-- ⏸ **AWAITING USER APPROVAL** → Operations (배포 계획)
+- ✅ **APPROVED** → Operations (사용자 "2" 선택, 2026-08-31)
+
+### Build Re-verification (this session, 2026-08-31)
+- 백엔드 테스트 스위트 실제 재실행: `pytest --cov=app` → **17 passed in 139.43s**, 라인 커버리지 **85%** (1047 stmts, 156 miss).
+- 핵심 도메인 커버리지 확인: `core/models.py` 100%, `order/service.py` 98%, `auth/service.py` 95%, `menu/repository.py` 100%.
+- 프런트엔드(`npm run build`)·Docker(`docker compose build`)는 이 머신에 Node·Docker 런타임 미설치로 여전히 실행 불가 → 이연 상태 유지.
+
+---
+
+## Operations Stage
+**Timestamp**: 2026-08-31
+**Approval**: User "2" (2026-08-31) → Operations 진행 승인
+**Status**: ✅ Complete (Placeholder)
+
+### 성격
+- AI-DLC 규칙(`.aidlc-rule-details/operations/operations.md`)상 Operations는 **플레이스홀더** 단계이며, 현행 워크플로는 CONSTRUCTION의 Build and Test 이후 종료된다.
+- 배포 계획/실행, 모니터링·관측성, 장애 대응, 유지보수 워크플로, 프로덕션 준비 체크리스트는 향후 버전에서 확장될 예정 범위(Future Scope)로 남는다.
+
+### 이 프로젝트에서의 결론
+- 8개 유닛(U0~U7) INCEPTION → CONSTRUCTION 전 단계 완료. 백엔드/프런트엔드/인프라 코드 생성 및 백엔드 테스트 검증 완료.
+- AI-DLC 워크플로 **완료**. 실제 프로덕션 배포는 Node·Docker 런타임이 있는 환경(CI/CD)에서 프런트 빌드 및 컨테이너 기동 검증 후 수행하면 된다.
+
+### Next Phase
+- ✅ **AI-DLC WORKFLOW COMPLETE**

@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: CONSTRUCTION - Build and Test (Complete, 17 tests pass) → OPERATIONS (awaiting approval gate)
+- **Current Stage**: OPERATIONS (Complete — placeholder) → AI-DLC WORKFLOW COMPLETE
 
 ## Workspace State
 - **Existing Code**: No
@@ -36,7 +36,9 @@
 - [x] Build and Test: ✅ Complete (approved 2026-08-31 "진행해줘"; backend 17 pytest pass, ~85% coverage, 7 PBT + 4 integration; frontend/Docker 빌드 절차 정의 — Node 미설치로 실행 이연)
 
 ### OPERATIONS Phase
-- [ ] Operations: PLACEHOLDER (⏸ APPROVAL GATE — 다음 단계 승인 대기)
+- [x] Operations: ✅ Complete (Placeholder — approved 2026-08-31 "2"; AI-DLC 워크플로는 Build and Test 이후 종료. 배포/모니터링/장애대응은 Future Scope)
+
+**🎉 AI-DLC WORKFLOW COMPLETE** — 8 units, INCEPTION → CONSTRUCTION 전 단계 완료, 백엔드 17 tests pass (85% cov). 프런트/Docker는 런타임 없는 환경으로 CI/CD에서 검증 예정.
 
 ## Extension Configuration
 
@@ -60,5 +62,5 @@
 - **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
 - **Image Storage**: External URLs (no file upload)
 - **Data Retention**: 3 months for order history
-- **Next Action**: Await user approval at Operations gate (Build and Test complete — pytest 17 passed, ~85% coverage)
+- **Next Action**: None — AI-DLC workflow complete. 실제 배포는 CI/CD(Node·Docker 환경)에서 프런트 빌드/컨테이너 검증 후 수행.
 - **Git Policy**: Commit at every stage completion on `main`; push to origin at ≥3 commits (standing instruction from user, 2026-08-31)
