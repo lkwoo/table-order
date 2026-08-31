@@ -24,12 +24,12 @@ _CATEGORIES = [
         ("제육볶음", 11000, "매콤한 제육볶음", None),
     ]),
     ("음료", 1, [
-        ("콜라", 2000, "시원한 콜라", None),
-        ("사이다", 2000, "청량한 사이다", None),
+        ("콜라", 2000, "시원한 콜라", "https://commons.wikimedia.org/wiki/Special:FilePath/Coca-Cola%20bottle.jpg"),
+        ("사이다", 2000, "청량한 사이다", "https://commons.wikimedia.org/wiki/Special:FilePath/Chilsung%20cider%20zero.jpg"),
     ]),
     ("주류", 2, [
-        ("소주", 5000, "국민 소주", None),
-        ("맥주", 6000, "시원한 생맥주", None),
+        ("소주", 5000, "국민 소주", "https://commons.wikimedia.org/wiki/Special:FilePath/Soju%20in%20korean%20restaurant.JPG"),
+        ("맥주", 6000, "시원한 생맥주", "https://commons.wikimedia.org/wiki/Special:FilePath/Beer%20glass.jpg"),
     ]),
 ]
 

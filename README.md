@@ -206,8 +206,9 @@ docker compose up --build
 - 프런트엔드: http://localhost:5173
 - 백엔드 API: http://localhost:8000  (헬스체크: `/health`)
 
-초기 시드 계정(자동 생성):
+초기 시드 데이터(첫 기동 시 자동 생성, 멱등):
 - 관리자 로그인 — 매장 ID `11111111-1111-1111-1111-111111111111`, 아이디 `admin`, 비밀번호 `admin1234`
+- 샘플 메뉴 3개 카테고리 — 메인(김치찌개·된장찌개·제육볶음), 음료(콜라·사이다), 주류(소주·맥주). 음료·주류 메뉴에는 예시 이미지 URL이 포함되어 있다(이미지는 외부 URL 방식 — 파일 업로드 없음). 메뉴/이미지는 관리자 화면 **메뉴 관리**에서 언제든 추가·수정할 수 있다.
 
 ## 6. 로컬 개발
 
@@ -305,8 +306,11 @@ table-order/
 ## 9. 현재 상태
 
 - INCEPTION → CONSTRUCTION 전 단계 완료, OPERATIONS는 플레이스홀더(워크플로 종료).
-- 백엔드 테스트 17 passed(~85% 커버리지), 프런트엔드 빌드 성공, 애플리케이션 실기동 E2E 검증 완료.
+- 백엔드 테스트 17 passed(~85% 커버리지), 프런트엔드 빌드 성공.
+- **실기동 검증 완료** — Docker 없이 로컬 네이티브(백엔드 uvicorn+SQLite, 프런트 Vite dev)로 띄워, 브라우저에서 고객 주문 → 관리자 대시보드 실시간 반영 → 테이블 상세/상태전이/메뉴 관리까지 육안 확인(콘솔 에러 0). E2E 스모크 테스트 `backend/live_check.py` 11/11 PASS.
 - 유일한 미실행 항목: **Docker 컨테이너 실기동**(런타임 부재로 CI/CD 환경으로 이연).
+
+> **Docker 없이 바로 띄우기(로컬 데모):** 백엔드는 `DATABASE_URL=sqlite:///./dev.db uvicorn app.main:app --workers 1` 로, 프런트는 `npm run dev` 로 실행하면 각각 `:8000` / `:5173` 에서 뜬다. 브라우저에서 `http://localhost:5173/admin` → 시드 관리자 계정 로그인 → 테이블 생성/세션 열기 → `http://localhost:5173/customer` 에서 주문하면 관리자 대시보드에 실시간 반영된다. (§6 로컬 개발 참고)
 
 상세 진행 이력은 [`aidlc-docs/aidlc-state.md`](aidlc-docs/aidlc-state.md) 와
 [`aidlc-docs/audit.md`](aidlc-docs/audit.md) 참고.
