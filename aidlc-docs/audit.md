@@ -134,3 +134,38 @@
 
 ### Next Phase
 - User approved proceeding → **Application Design** (INCEPTION)
+
+---
+
+## Phase: INCEPTION - Application Design
+- **Status**: ✅ Artifacts Generated (Pending User Approval)
+- **Started**: 2026-08-31
+- **Design Plan**: `aidlc-docs/inception/plans/application-design-plan.md`
+
+### Design Decisions (all recommended / option A)
+- Q1 Backend: Layered (Router→Service→Repository)
+- Q2 Frontend: Single React app, route-split (/customer, /admin)
+- Q3 Service boundary: Domain services
+- Q4 SSE: In-memory EventBroker (single instance)
+- Q5 SSE channels: Separate endpoints (customer/admin)
+- Q6 Auth: FastAPI Dependency guards (JWT / session token)
+- Q7 Session end: Single atomic DB transaction
+- Q8 History: Separate OrderHistory table
+- Q9 Offline: Client caching + reconnect resync
+- Q10 API: RESTful + OpenAPI
+
+### Artifacts Generated
+- `aidlc-docs/inception/application-design/components.md`
+- `aidlc-docs/inception/application-design/component-methods.md`
+- `aidlc-docs/inception/application-design/services.md`
+- `aidlc-docs/inception/application-design/component-dependency.md`
+- `aidlc-docs/inception/application-design/application-design.md` (consolidated)
+
+### Coverage
+- 24/24 user stories mapped to components/services; requirements 3.x/4.x fully covered.
+
+### Approval Prompt (logged 2026-08-31)
+> "Application Design 산출물이 생성되었습니다. `aidlc-docs/inception/application-design/`를 검토하신 후 (1) 변경 요청 (2) 승인 & Units Generation 진행 중 선택해주세요."
+
+### Next Phase
+- Awaiting user approval → **Units Generation** (INCEPTION)

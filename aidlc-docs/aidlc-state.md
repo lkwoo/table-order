@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: INCEPTION - Application Design (In Progress - Planning)
+- **Current Stage**: INCEPTION - Application Design (Artifacts Complete - Pending Approval)
 
 ## Workspace State
 - **Existing Code**: No
@@ -24,7 +24,7 @@
 - [x] Requirements Analysis: ✅ Complete
 - [x] User Stories: ✅ Complete (24 stories: Customer 11, Admin 13; 2 personas, story matrix)
 - [x] Workflow Planning: ✅ Complete
-- [~] Application Design: IN PROGRESS (Planning - awaiting design decisions)
+- [~] Application Design: ARTIFACTS COMPLETE (5 docs generated - pending approval)
 - [ ] Units Generation: EXECUTE
 
 ### CONSTRUCTION Phase
@@ -60,4 +60,4 @@
 - **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
 - **Image Storage**: External URLs (no file upload)
 - **Data Retention**: 3 months for order history
-- **Next Action**: Complete Application Design plan Q&A (application-design-plan.md), then generate design artifacts
+- **Next Action**: User review/approval of Application Design → proceed to Units Generation

@@ -31,16 +31,16 @@
 - [x] stories.md 분석 (24개 스토리)
 - [x] 핵심 비즈니스 역량 식별 (인증, 메뉴, 주문, 실시간 모니터링, 테이블/세션 관리)
 
-## Step 2: 설계 결정 질문 답변 (아래 PART 2)
-- [ ] 모든 [Answer]: 태그 작성 완료
+## Step 2: 설계 결정 질문 답변 (아래 PART 2) ✅
+- [x] 모든 [Answer]: 태그 작성 완료 (전부 A/권장, 모호성 없음)
 
-## Step 3: 설계 산출물 생성 (답변 승인 후)
-- [ ] `components.md` — 컴포넌트 정의 및 고수준 책임
-- [ ] `component-methods.md` — 메서드 시그니처 (I/O 타입)
-- [ ] `services.md` — 서비스 정의 및 오케스트레이션 패턴
-- [ ] `component-dependency.md` — 의존성 매트릭스 및 통신 패턴, 데이터 흐름
-- [ ] `application-design.md` — 위 문서 통합본
-- [ ] 설계 완전성/일관성 검증
+## Step 3: 설계 산출물 생성 (답변 승인 후) ✅
+- [x] `components.md` — 컴포넌트 정의 및 고수준 책임
+- [x] `component-methods.md` — 메서드 시그니처 (I/O 타입)
+- [x] `services.md` — 서비스 정의 및 오케스트레이션 패턴
+- [x] `component-dependency.md` — 의존성 매트릭스 및 통신 패턴, 데이터 흐름
+- [x] `application-design.md` — 위 문서 통합본
+- [x] 설계 완전성/일관성 검증
 
 ---
 
@@ -61,7 +61,7 @@ FastAPI 백엔드의 컴포넌트를 어떻게 조직할까요?
   - 각 도메인이 자체 router/service/model을 포함
 - **C) A + B 혼합 (도메인 모듈 내부에 레이어 적용)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -74,7 +74,7 @@ FastAPI 백엔드의 컴포넌트를 어떻게 조직할까요?
 - **B) 완전히 분리된 2개 React 앱**
   - 독립 배포 가능하나 프로토타입 범위에는 과함
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -87,7 +87,7 @@ FastAPI 백엔드의 컴포넌트를 어떻게 조직할까요?
 - **B) 더 굵은 단위 (CustomerService / AdminService 2개)**
 - **C) 기타 (설명)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -100,7 +100,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
 - **B) 외부 메시지 브로커(Redis Pub/Sub 등) 도입**
   - 확장성↑ 하지만 인프라 복잡도↑ (현재 범위 초과 가능)
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -113,7 +113,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
   - 관리자: `/sse/dashboard` (매장 전체 이벤트, JWT 인증)
 - **B) 단일 엔드포인트 + 클라이언트 필터링**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -125,7 +125,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
   - `get_current_admin`(JWT 검증), `get_current_table_session`(세션 토큰 검증) 의존성으로 분리
 - **B) 단일 통합 미들웨어에서 분기 처리**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -137,7 +137,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
   - Order → OrderHistory 복사/이동, 현재 주문 삭제, 새 TableSession 생성을 하나의 트랜잭션으로
 - **B) 별도 단계로 처리 (실패 시 보상 로직)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -150,7 +150,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
 - **B) Order 테이블에 상태 플래그(archived)만 추가**
   - 단순하지만 현재/과거 조회 쿼리가 섞임
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -163,7 +163,7 @@ SSE 브로드캐스트를 어떻게 처리할까요?
 - **B) 서비스 워커 기반 완전 오프라인 (PWA)**
   - 범위 초과 가능
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -174,7 +174,7 @@ REST API 규약과 문서화 방식은?
 - **A) RESTful + FastAPI 자동 OpenAPI 문서(/docs)** ⭐권장
 - **B) 기타 규약 (설명)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -188,4 +188,4 @@ REST API 규약과 문서화 방식은?
 ---
 
 **작성일**: 2026-08-31
-**상태**: 답변 대기 (Awaiting User Input)
+**상태**: 답변 완료 → 산출물 생성 완료 (검토 대기)
