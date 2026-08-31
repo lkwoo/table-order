@@ -247,11 +247,11 @@
 - [x] Follow format chosen in Step 5
 
 **결과**:
-- 총 21개 User Stories (고객 12개, 관리자 9개)
+- 총 25개 User Stories (고객 12개, 관리자 13개) *[검증 후 수정: A13 추가 및 카운트 정정]*
 - 조직 방식: User Journey-Based (고객 흐름)
 - 그룹: 고객 4개 그룹, 관리자 3개 그룹
 - AC 형식: BDD (Given-When-Then)
-- Sprint 1 (MVP): 19개, Sprint 2: 2개
+- Sprint 1 (MVP): 19개, Sprint 2: 6개
 
 ## Step 11: Map Personas to Stories ✅ (완료)
 - [x] Create mapping document or matrix
@@ -282,12 +282,12 @@
 - [x] Organization structure overview
 
 **결과**:
-- 총 21개 Stories
+- 총 25개 Stories
   - 고객: 12개 (C1-C12)
-  - 관리자: 9개 (A1-A12)
-- 우선순위: P0 14개, P1 5개, P2 2개
-- 복잡도: M 15개, S 6개
-- Sprint 1: 19개 (MVP), Sprint 2: 2개 (추가)
+  - 관리자: 13개 (A1-A13)
+- 우선순위: P0 13개, P1 7개, P2 5개
+- 복잡도: M 18개, S 7개
+- Sprint 1: 19개 (MVP), Sprint 2: 6개 (추가)
 
 ---
 

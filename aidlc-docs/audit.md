@@ -65,7 +65,7 @@
 
 ### User Stories Findings
 - **Organization Approach**: User Journey-Based
-- **Total Stories**: 21 (Customer: 12, Admin: 9)
+- **Total Stories**: 25 (Customer: 12, Admin: 13) *[corrected after verification]*
 - **Personas**: 2 (Customer with 3 segments, Admin)
 - **Acceptance Criteria Format**: Given-When-Then (BDD), Detailed level
 - **Story Size**: Medium (2-5 days)
@@ -97,3 +97,24 @@
 
 ### Next Phase
 - Awaiting user approval to proceed to **Application Design**
+
+---
+
+## Verification Pass - Prior Artifacts Re-check
+- **Status**: ✅ Complete
+- **Timestamp**: 2026-08-31 (post model upgrade to Opus 4.8)
+- **Reason**: User requested re-verification of all prior work due to possible gaps from lower-capability model
+
+### Issues Found & Fixed
+1. **Story count error (Major)**: Docs claimed 21 stories but 24 existed (C1-C12 + A1-A12). All summary stats (priority/complexity/sprint) were miscalculated. → Recounted and corrected across stories.md, story-matrix.md, execution-plan.md, story-generation-plan.md, aidlc-state.md, audit.md.
+2. **Missing story (Major)**: 요구사항 3.2.4 "메뉴 노출 순서 조정" had no story. → Added **A13** (menu display order). New total: **25 stories**.
+3. **Requirement contradiction (Major)**: C10 order-success redirect said "주문 조회 화면" but 요구사항 3.1.4 specifies "메뉴 화면". → Corrected to menu screen.
+4. **Uncovered requirement (Medium)**: Admin dashboard offline operation (요구사항 4.2, confirmed Q3-2=네) not in any story. → Added offline + auto-resync acceptance criteria to A2.
+
+### Deferred / Needs Confirmation (documented in story-matrix.md §4)
+- 로그인 시도 제한 (Security Extension off — intentionally deferred)
+- 관리자 테이블별 필터링 (원본 3.2.2 — low MVP priority)
+- C4 알레르기/칼로리, C5 메뉴 검색 (범위 밖 추가 기능 — 유지/제거 결정 필요)
+
+### Skipped-Stage Review
+- **Reverse Engineering**: Legitimately SKIPPED (Greenfield, no existing code). No other stages skipped — remaining 8 stages all set to EXECUTE. Nothing to add.

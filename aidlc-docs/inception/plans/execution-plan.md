@@ -111,7 +111,7 @@ flowchart TD
   - 요구사항 문서 및 검증 질문 완료
 
 - [x] **User Stories** (COMPLETED)
-  - 21개 User Stories, 2개 Personas, Story Matrix 완료
+  - 25개 User Stories, 2개 Personas, Story Matrix 완료
 
 - [x] **Workflow Planning** (IN PROGRESS)
   - 현재 단계
@@ -181,7 +181,7 @@ flowchart TD
   - 속성 기반 테스트
 - **Quality Gates**:
   - ✅ 모든 요구사항 커버 (requirements.md 대비)
-  - ✅ 21개 User Stories의 Acceptance Criteria 충족
+  - ✅ 25개 User Stories의 Acceptance Criteria 충족
   - ✅ 성능 기준 충족 (주문<1초, 메뉴<2초, SSE<2초)
   - ✅ 속성 기반 테스트 통과 (주문/결제 정합성)
   - ✅ DoD 충족: 코드 작성, Unit Test, Code Review, Integration Test, PO 승인
