@@ -210,3 +210,35 @@
 
 ### Next Phase
 - **CONSTRUCTION PHASE — Functional Design** (per-unit business logic)
+
+---
+
+## Phase: CONSTRUCTION - Functional Design
+- **Status**: ✅ Artifacts Generated (Pending User Approval)
+- **Timestamp**: 2026-08-31
+- **Plan**: `aidlc-docs/construction/plans/functional-design-plan.md` (9 Q&A, all recommended / option A)
+
+### Design Decisions (all recommended / option A)
+- Q1 Status transitions: Forward-only (대기중→준비중→완료)
+- Q2 Order numbering: Store-scoped sequential
+- Q3 History: Snapshot-copy on session end (menu_name/unit_price preserved)
+- Q4 Isolation key: TableSession.id
+- Q5 Pricing: Server-side re-validation (server authoritative)
+- Q6 Retries: Idempotency-key
+- Q7 Menu delete: Soft-delete (is_active=false)
+- Q8 Frontend state: Context + hooks (localStorage cart sync)
+- Q9 Reconnect: Full-snapshot re-fetch
+
+### Artifacts Generated (per unit)
+- U0 Core: `domain-entities.md`, `business-rules.md`
+- U1 Auth / U2 Menu / U3 Order / U4 Realtime / U5 Table / U6 Menu-Management: `business-logic-model.md` + `business-rules.md` each
+- U7 Frontend: `frontend-components.md`
+
+### Coverage
+- 24/24 stories covered across 8 units; PBT candidates identified (order total invariant, idempotency, isolation, session-end sum conservation, atomicity, menu order continuity, soft-delete snapshot preservation).
+
+### Approval Prompt (logged 2026-08-31)
+> "Functional Design 산출물이 생성되었습니다(`aidlc-docs/construction/`). 8개 유닛의 비즈니스 로직/규칙과 프론트엔드 컴포넌트 설계를 검토하신 후 (1) 변경 요청 (2) 승인 & NFR Requirements 진행 중 선택해주세요."
+
+### Next Phase
+- Awaiting user approval → **NFR Requirements**

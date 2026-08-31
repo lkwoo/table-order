@@ -25,18 +25,18 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
 ## Step 1: Unit 컨텍스트 분석 ✅
 - [x] unit-of-work.md / story-map 분석
 
-## Step 2: 결정 질문 답변 (아래 PART 2)
-- [ ] 모든 [Answer]: 태그 작성
+## Step 2: 결정 질문 답변 (아래 PART 2) ✅
+- [x] 모든 [Answer]: 태그 작성 (전부 A/권장, 모호성 없음)
 
-## Step 3: 산출물 생성 (승인 후)
-- [ ] U0 Core: domain-entities.md (9 엔티티 통합 스키마) + business-rules.md (공통 검증/제약)
-- [ ] U1 Auth: business-logic-model / business-rules
-- [ ] U2 Menu: business-logic-model / business-rules
-- [ ] U3 Order: business-logic-model / business-rules
-- [ ] U4 Realtime & Dashboard: business-logic-model / business-rules
-- [ ] U5 Table & Session: business-logic-model / business-rules
-- [ ] U6 Menu Management: business-logic-model / business-rules
-- [ ] U7 Frontend: frontend-components.md
+## Step 3: 산출물 생성 (승인 후) ✅
+- [x] U0 Core: domain-entities.md (9 엔티티 통합 스키마) + business-rules.md (공통 검증/제약)
+- [x] U1 Auth: business-logic-model / business-rules
+- [x] U2 Menu: business-logic-model / business-rules
+- [x] U3 Order: business-logic-model / business-rules
+- [x] U4 Realtime & Dashboard: business-logic-model / business-rules
+- [x] U5 Table & Session: business-logic-model / business-rules
+- [x] U6 Menu Management: business-logic-model / business-rules
+- [x] U7 Frontend: frontend-components.md
 
 ---
 
@@ -55,7 +55,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
 - **B) 자유 전이 (임의 상태 변경 허용)**
 - **C) 전진 + 인접 1단계 되돌리기 허용**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -68,7 +68,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
 - **B) 랜덤/UUID 단축코드**
 - **C) 테이블별 일련번호**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -80,7 +80,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
   - 메뉴가 나중에 변경/삭제돼도 이력 보존(참조 무결성). 3개월 보관
 - **B) 참조만 유지 (메뉴 변경 시 이력도 변함)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -92,7 +92,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
   - 주문은 생성 시점의 활성 세션 id에 연결. 조회는 현재 세션 id로 필터(C12)
 - **B) table_id + 시간 범위**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -104,7 +104,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
   - 클라이언트 가격은 표시용, 최종 금액은 서버가 메뉴 테이블 기준 계산(위변조 방지)
 - **B) 클라이언트 금액을 신뢰**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -116,7 +116,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
   - 주문 생성은 클라이언트 생성 idempotency-key로 중복 주문 방지하며 재시도
 - **B) 모든 요청 무조건 재시도 (중복 위험)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -128,7 +128,7 @@ Unit별로 다음 산출물을 생성합니다 (해당되는 경우):
   - 고객 메뉴 목록에서만 숨김. 주문·이력은 스냅샷/참조 유지
 - **B) 하드 삭제 + 이력은 스냅샷으로만 보존**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -140,7 +140,7 @@ React 상태 관리 방식은?
   - 프로토타입 규모에 적합, 외부 라이브러리 최소화
 - **B) Redux 등 전역 상태 라이브러리 도입**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -152,7 +152,7 @@ React 상태 관리 방식은?
   - 단순·정확. 놓친 이벤트를 개별 재생하지 않고 최신 상태로 덮어씀
 - **B) 이벤트 로그 재생 (누락 이벤트 순차 반영)**
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -165,4 +165,4 @@ React 상태 관리 방식은?
 ---
 
 **작성일**: 2026-08-31
-**상태**: 답변 대기 (Awaiting User Input)
+**상태**: 답변 완료 (전부 권장) → 산출물 생성 완료
