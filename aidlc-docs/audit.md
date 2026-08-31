@@ -323,3 +323,40 @@
 
 ### Next Phase
 - ⏸ **AWAITING USER APPROVAL** → Code Generation (실제 backend/frontend 코드 생성)
+
+---
+
+## Phase: CONSTRUCTION - Code Generation
+- **Status**: ✅ Complete (code + tests generated, tests passing)
+- **Timestamp**: 2026-08-31
+- **Plan (SSOT)**: `aidlc-docs/construction/plans/code-generation-plan.md`
+
+### Approval Prompt (logged 2026-08-31)
+> "설계 단계 완료. 다음은 Code Generation(실제 코드 생성)입니다. (1) 설계 변경 요청 (2) 승인 & 코드 생성 진행 중 선택해주세요."
+
+### Approval Response
+- **User Decision**: Approved (2026-08-31) — "진행해줘"
+- **Status**: Approved → 코드 생성 실행
+
+### Generated Application Code (workspace root, NEVER aidlc-docs/)
+- **Backend** (`backend/`): FastAPI 앱 — `app/core/`(U0: config, db, types, models, errors, security, event_broker, logging, seed), `app/auth/`(U1), `app/menu/`(U2), `app/order/`(U3), `app/realtime/`(U4), `app/table_session/`(U5), `app/menu_mgmt/`(U6), `app/main.py`. requirements.txt, Dockerfile, alembic/.
+- **Frontend** (`frontend/`, U7): React 18 + TS + Vite. shared/customer/admin 37개 파일. 병렬 서브에이전트 생성, REST/SSE 계약 준수.
+- **Infrastructure** (workspace root): `docker-compose.yml`(db+backend+frontend, 단일 워커), `.env.example`, `.gitignore`, `README.md`.
+
+### Tests (`backend/tests/`)
+- pytest + Hypothesis. **13 passed** (`.venv` Python 3.11).
+- 7개 PBT 불변식 전부 검증: (1) 총액=Σ(단가×수량), (2) idempotency, (3) 세션 격리, (4) 세션종료 합계보존, (5) 완료→이전 전이 거부, (6) reorder 연속성, (7) 소프트삭제 스냅샷 보존.
+
+### Documentation (`aidlc-docs/construction/{unit}/code/`)
+- U0~U7 각 유닛 `code-summary.md` 생성.
+
+### Notes
+- 모델을 PG 전용 UUID → 이식성 `GUID` TypeDecorator 로 변경(SQLite 기반 PBT 지원).
+- Hypothesis 함수 스코프 픽스처 헬스체크 억제 프로파일 등록(예제별 고유 UUID 로 격리 유지).
+- vite proxy 대상 `VITE_PROXY_TARGET` 환경변수화(로컬/Docker 양립).
+
+### Approval Gate (logged 2026-08-31)
+> "Code Generation 완료 — 백엔드/프런트엔드/인프라 생성 및 테스트 13건 통과. 다음은 Build and Test 단계입니다. (1) 코드 변경 요청 (2) 승인 & Build and Test 진행 중 선택해주세요."
+
+### Next Phase
+- ⏸ **AWAITING USER APPROVAL** → Build and Test

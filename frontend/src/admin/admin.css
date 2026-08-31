@@ -1,0 +1,125 @@
+.admin-shell {
+  min-height: 100%;
+}
+.admin-header {
+  background: #1f2933;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-header h1 {
+  font-size: 18px;
+  margin: 0;
+}
+.admin-nav {
+  display: flex;
+  gap: 8px;
+}
+.admin-nav button {
+  background: transparent;
+  border: 1px solid #3a4756;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 40px;
+}
+.admin-nav button.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.admin-body {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.table-card {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.table-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.table-card.has-new {
+  animation: pulse 1s ease-in-out infinite;
+  border-color: var(--color-wait);
+}
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(245, 166, 35, 0);
+  }
+}
+.table-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.table-card__number {
+  font-size: 20px;
+  font-weight: 800;
+}
+.table-card__total {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 3px 0;
+  color: var(--color-muted);
+}
+
+.detail-order {
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 0;
+}
+.detail-order__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.menu-mgmt-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.menu-mgmt-table th,
+.menu-mgmt-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+.menu-mgmt-table .inactive {
+  opacity: 0.5;
+}
+.reorder-btns button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}

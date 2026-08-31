@@ -1,0 +1,17 @@
+# 환경 변수
+.env
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.hypothesis/
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+*.log

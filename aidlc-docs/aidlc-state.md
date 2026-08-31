@@ -4,7 +4,7 @@
 - **Project Name**: 테이블오더 (Table Order Service)
 - **Project Type**: Greenfield
 - **Start Date**: 2026-08-31T12:45:00Z
-- **Current Stage**: CONSTRUCTION - Infrastructure Design (Complete) → Code Generation (awaiting approval gate)
+- **Current Stage**: CONSTRUCTION - Code Generation (Complete, tests passing) → Build and Test (awaiting approval gate)
 
 ## Workspace State
 - **Existing Code**: No
@@ -32,8 +32,8 @@
 - [x] NFR Requirements: ✅ Complete (project-level, requirements §4 근거; nfr-requirements.md + tech-stack-decisions.md)
 - [x] NFR Design: ✅ Complete (nfr-design-patterns.md + logical-components.md; EventBroker/AuthGuard/UoW/cache 논리 컴포넌트)
 - [x] Infrastructure Design: ✅ Complete (Docker Compose db+backend+frontend, 단일 워커 제약, 디렉터리 구조, shared-infrastructure)
-- [ ] Code Generation: EXECUTE (⏸ APPROVAL GATE — 코드 생성 전 사용자 승인 대기)
-- [ ] Build and Test: EXECUTE
+- [x] Code Generation: ✅ Complete (approved 2026-08-31 "진행해줘"; 8 units — backend FastAPI + frontend React + Docker Compose; 13 tests pass incl. 7 PBT 불변식)
+- [ ] Build and Test: EXECUTE (⏸ APPROVAL GATE — 다음 단계 승인 대기)
 
 ### OPERATIONS Phase
 - [ ] Operations: PLACEHOLDER (Future)
@@ -60,5 +60,5 @@
 - **Team Structure**: 1 Admin per Store (no multi-store/multi-role support)
 - **Image Storage**: External URLs (no file upload)
 - **Data Retention**: 3 months for order history
-- **Next Action**: Await user approval at Code Generation gate (design stages FD/NFR-Req/NFR-Design/Infra all complete)
+- **Next Action**: Await user approval at Build and Test gate (Code Generation complete — 백엔드/프런트/인프라 생성, pytest 13 passed)
 - **Git Policy**: Commit at every stage completion on `main`; push to origin at ≥3 commits (standing instruction from user, 2026-08-31)
