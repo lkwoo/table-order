@@ -387,7 +387,18 @@
 ### Build Re-verification (this session, 2026-08-31)
 - 백엔드 테스트 스위트 실제 재실행: `pytest --cov=app` → **17 passed in 139.43s**, 라인 커버리지 **85%** (1047 stmts, 156 miss).
 - 핵심 도메인 커버리지 확인: `core/models.py` 100%, `order/service.py` 98%, `auth/service.py` 95%, `menu/repository.py` 100%.
-- 프런트엔드(`npm run build`)·Docker(`docker compose build`)는 이 머신에 Node·Docker 런타임 미설치로 여전히 실행 불가 → 이연 상태 유지.
+
+### Frontend Build 완결 (this session, 2026-08-31)
+- Node.js LTS **24.19.0** (npm 11.17.0) winget 설치 → 프런트 빌드 실제 실행.
+- `npm install` (71 packages) 후 `npm run build`(`tsc -b && vite build`) → ✅ **성공**. 61 modules, 산출물 `dist/`: index.html 0.43 kB, CSS 7.04 kB, **JS 197.99 kB (gzip 62.52 kB)**.
+- 빌드 통과를 위한 소스 수정:
+  - `frontend/tsconfig.node.json`: `tsc -b` 빌드 모드에서 composite 참조 프로젝트가 emit을 비활성화할 수 없는 문제(TS6310) 해결 — `noEmit` 제거, `outDir`/`tsBuildInfoFile`을 `node_modules/.tmp`로, `types:["node"]` 추가.
+  - `frontend/package.json`: `@types/node` devDependency 추가(`vite.config.ts`의 `process` 참조 TS2580 해결).
+  - `frontend/package-lock.json` 생성(재현 가능 빌드/`npm ci` 지원), `.gitignore`에 `*.tsbuildinfo` 추가.
+
+### Docker 정적 검증 (this session, 2026-08-31)
+- `docker` 런타임 미설치(Docker Desktop은 WSL2+재부팅+데몬 수동 기동 필요) → 실제 이미지 빌드/컨테이너 기동은 이 세션에서 불가.
+- 구성 파일 정합성 확인: `docker-compose.yml`(db postgres:16 healthcheck → backend depends_on service_healthy → frontend, DATABASE_URL/VITE_PROXY_TARGET 배선, 포트 5432/8000/5173), `backend/Dockerfile`(python:3.12-slim, 단일 워커 uvicorn), `frontend/Dockerfile`(node:20-alpine, vite dev). → CI/CD 또는 Docker Desktop 설치 환경에서 `docker compose build && up`로 검증 가능.
 
 ---
 

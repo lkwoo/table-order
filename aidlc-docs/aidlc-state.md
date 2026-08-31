@@ -33,7 +33,7 @@
 - [x] NFR Design: ✅ Complete (nfr-design-patterns.md + logical-components.md; EventBroker/AuthGuard/UoW/cache 논리 컴포넌트)
 - [x] Infrastructure Design: ✅ Complete (Docker Compose db+backend+frontend, 단일 워커 제약, 디렉터리 구조, shared-infrastructure)
 - [x] Code Generation: ✅ Complete (approved 2026-08-31 "진행해줘"; 8 units — backend FastAPI + frontend React + Docker Compose; 13 tests pass incl. 7 PBT 불변식)
-- [x] Build and Test: ✅ Complete (approved 2026-08-31 "진행해줘"; backend 17 pytest pass, ~85% coverage, 7 PBT + 4 integration; frontend/Docker 빌드 절차 정의 — Node 미설치로 실행 이연)
+- [x] Build and Test: ✅ Complete (approved 2026-08-31 "진행해줘"; backend 17 pytest pass, ~85% coverage, 7 PBT + 4 integration). Frontend 빌드 완결(2026-08-31): Node 24.19.0 설치 → `npm run build` 성공, dist JS 198 kB/gzip 62.5 kB (tsconfig/@types/node 수정). Docker는 정적 검증만(런타임 미설치, CI/CD에서 실행).
 
 ### OPERATIONS Phase
 - [x] Operations: ✅ Complete (Placeholder — approved 2026-08-31 "2"; AI-DLC 워크플로는 Build and Test 이후 종료. 배포/모니터링/장애대응은 Future Scope)
